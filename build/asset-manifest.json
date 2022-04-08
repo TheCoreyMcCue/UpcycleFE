@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.609ab232.css",
+    "main.js": "/static/js/main.851f1a41.js",
+    "static/js/787.818d4387.chunk.js": "/static/js/787.818d4387.chunk.js",
+    "static/media/UpcycleSkate-logos_white.png": "/static/media/UpcycleSkate-logos_white.5104c6f26b65c51dd583.png",
+    "index.html": "/index.html",
+    "main.609ab232.css.map": "/static/css/main.609ab232.css.map",
+    "main.851f1a41.js.map": "/static/js/main.851f1a41.js.map",
+    "787.818d4387.chunk.js.map": "/static/js/787.818d4387.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.609ab232.css",
+    "static/js/main.851f1a41.js"
+  ]
+}
