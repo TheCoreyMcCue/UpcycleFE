@@ -1,13 +1,22 @@
-import React from "react";
-import "./Home.css";
-import Listing from "../Listing/Listing";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import uuid from "react-uuid";
 import { Grid } from "@mui/material";
+import Listing from "../Listing/Listing";
+import "./Home.css";
 // import logo from "../../assets/logos/UpcycleSkate-logos_white.png";
 
 const Home = () => {
-  const description =
-    "Lizards are a widespread group of squamate reptile with over 6,000 species,branging across all continents except Antarctica Lizards are a widespread group of squamate reptile with over 6,000 species,branging across all continents except Antarctica";
+  const [listings, setListings] = useState([]);
+
+  useEffect(() => {
+    const fetchListings = async () => {
+      const { data } = await axios.get("/api/listings");
+      setListings(data);
+    };
+    fetchListings();
+  }, []);
+  console.log(listings);
   return (
     <div className="home">
       <div className="home__container">
@@ -24,7 +33,19 @@ const Home = () => {
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 2, sm: 8, md: 12 }}
         >
-          <Grid item xs={2} sm={4} md={4}>
+          {listings.map((listing) => (
+            <Grid key={uuid()} item xs={2} sm={4} md={4}>
+              <Listing
+                title={listing.title}
+                image={listing.image}
+                id={listing.id}
+                price={listing.price}
+                rating={listing.rating}
+                description={listing.description}
+              />
+            </Grid>
+          ))}
+          {/* <Grid item xs={2} sm={4} md={4}>
             <Listing
               title="Complete Element Deck with Spitfire Wheels"
               id={uuid()}
@@ -83,7 +104,7 @@ const Home = () => {
               rating={4}
               description={description}
             />
-          </Grid>
+          </Grid> */}
           )
         </Grid>
       </Grid>
