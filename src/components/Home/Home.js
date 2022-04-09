@@ -4,6 +4,7 @@ import uuid from "react-uuid";
 import { Grid } from "@mui/material";
 import Listing from "../Listing/Listing";
 import "./Home.css";
+// import { products } from "./products";
 // import logo from "../../assets/logos/UpcycleSkate-logos_white.png";
 
 const Home = () => {
@@ -16,7 +17,6 @@ const Home = () => {
     };
     fetchListings();
   }, []);
-  console.log(listings);
   return (
     <div className="home">
       <div className="home__container">
