@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import uuid from "react-uuid";
 import { Grid } from "@mui/material";
 import Listing from "../Listing/Listing";
@@ -9,6 +10,8 @@ import "./Home.css";
 
 const Home = () => {
   const [listings, setListings] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -34,7 +37,7 @@ const Home = () => {
           columns={{ xs: 2, sm: 8, md: 12 }}
         >
           {listings.map((listing) => (
-            <Grid key={uuid()} item xs={2} sm={4} md={4}>
+            <Grid onClick={() => navigate(`/listing/${listing.id}`)} key={uuid()} item xs={2} sm={4} md={4}>
               <Listing
                 title={listing.title}
                 image={listing.image}
